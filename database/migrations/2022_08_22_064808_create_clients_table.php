@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Client;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -19,7 +20,7 @@ return new class extends Migration
             $table->string('last_name');
             $table->string('email')->unique();
             $table->string('passport_num')->unique();
-            $table->enum('gender', ['male', 'female'])->unique();
+            $table->enum('gender', [CLIENT::MALE, CLIENT::FEMALE]);
             $table->timestamps();
         });
     }
